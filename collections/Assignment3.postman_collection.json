@@ -1,11 +1,11 @@
 {
 	"info": {
-		"_postman_id": "d9e6c6ef-0b10-451c-99e9-1b1d4fdf5cbd",
+		"_postman_id": "ab3586db-968d-441a-bd8a-fe282e598950",
 		"name": "✅ Assignment #3",
 		"description": "## Instructions for Assignment #3\n\n1. **Get the challenge:** Fork the parent collection to your own public workspace.\n2. **Read the instructions:** You will find the tasks you need to complete below.\n3. **Verify your solution:** Select the second folder `Check your solution` and follow the instructions in the documentation to validate your solution.\n    \n\n## Tasks\n\nAll of the following tasts refer to the request \"Get an order by ID\".\n\n### Task 1\n\nWrite an assertion to verify that the response is in JSON format.\n\n### Task 2\n\nWrite a test with two assertions to verify the following:\n\n- The existence of the property \"id\" in the response.\n- The value of the \"id\" property matches the regular expression pattern: `^[A-Z0-9]{9}$`.\n    \n\n### Task 3\n\nWrite a test with two assertions to verify the following:\n\n- The existence of the property \"products\" in the response.\n- The value of the \"products\" property is an array.\n    \n\n### Task 4\n\nOnce you have established that the tests are working as expected, duplicate request from the collection. Drag the request copy inside the \"Assignment #3\" collection and put them in the \"API requests\" folder. Ensure the name of the request remains the same.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "48957267",
-		"_collection_link": "https://subirthecoder35-1830748.postman.co/workspace/API-Automation-Scripts~bdfd9a3c-03f0-4034-8e87-84718b98a767/collection/48957267-d9e6c6ef-0b10-451c-99e9-1b1d4fdf5cbd?action=share&source=collection_link&creator=48957267"
+		"_collection_link": "https://subirthecoder35-1830748.postman.co/workspace/API-Automation-Scripts~bdfd9a3c-03f0-4034-8e87-84718b98a767/collection/48957267-ab3586db-968d-441a-bd8a-fe282e598950?action=share&source=collection_link&creator=48957267"
 	},
 	"item": [
 		{
@@ -74,7 +74,7 @@
 							"variable": [
 								{
 									"key": "orderId",
-									"value": "A0OTAXBQF"
+									"value": "SYUBQZNBP"
 								}
 							]
 						}
@@ -262,11 +262,27 @@
 			"description": "Open the request \"Verify your work\" and follow the instructions in the request documentation."
 		}
 	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "972d418249a0bfe2bda373f20014990b90db31fb",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "X-API-KEY",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
 				"type": "text/javascript",
+				"requests": {},
 				"exec": [
 					""
 				]
@@ -276,6 +292,7 @@
 			"listen": "test",
 			"script": {
 				"type": "text/javascript",
+				"requests": {},
 				"exec": [
 					""
 				]
@@ -285,18 +302,15 @@
 	"variable": [
 		{
 			"key": "postman_api_key",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
 			"key": "collection_uuid",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
 			"key": "baseUrl",
-			"value": "https://valentinos-coffee.herokuapp.com",
-			"type": "string"
+			"value": "https://valentinos-coffee.herokuapp.com"
 		}
 	]
 }
