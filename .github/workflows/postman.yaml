@@ -7,19 +7,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-assignments:
+  run_assignments:
     runs-on: ubuntu-latest
-    env:
-      POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
+      - uses: actions/checkout@v3
 
       - name: Install Newman
         run: npm install -g newman
@@ -27,27 +18,35 @@ jobs:
       - name: Run Assignment 1
         run: |
           newman run collections/Assignment1.postman_collection.json \
-          --env-var "postman_api_key=${POSTMAN_API_KEY}" \
-          --reporters cli,junit \
-          --reporter-junit-export results/assignment1.xml
+            --env-var "postman_api_key=${{ secrets.POSTMAN_API_KEY }}" \
+            --env-var "collection_uuid=${{ secrets.ASSIGNMENT1_UUID }}" \
+            --env-var "apiKey=${{ secrets.ASSIGNMENT1_X_API_KEY }}" \
+            --reporters cli,junit \
+            --reporter-junit-export results/assignment1.xml
 
       - name: Run Assignment 2
         run: |
           newman run collections/Assignment2.postman_collection.json \
-          --env-var "postman_api_key=${POSTMAN_API_KEY}" \
-          --reporters cli,junit \
-          --reporter-junit-export results/assignment2.xml
+            --env-var "postman_api_key=${{ secrets.POSTMAN_API_KEY }}" \
+            --env-var "collection_uuid=${{ secrets.ASSIGNMENT2_UUID }}" \
+            --env-var "apiKey=${{ secrets.ASSIGNMENT2_X_API_KEY }}" \
+            --reporters cli,junit \
+            --reporter-junit-export results/assignment2.xml
 
       - name: Run Assignment 3
         run: |
           newman run collections/Assignment3.postman_collection.json \
-          --env-var "postman_api_key=${POSTMAN_API_KEY}" \
-          --reporters cli,junit \
-          --reporter-junit-export results/assignment3.xml
+            --env-var "postman_api_key=${{ secrets.POSTMAN_API_KEY }}" \
+            --env-var "collection_uuid=${{ secrets.ASSIGNMENT3_UUID }}" \
+            --env-var "apiKey=${{ secrets.ASSIGNMENT3_X_API_KEY }}" \
+            --reporters cli,junit \
+            --reporter-junit-export results/assignment3.xml
 
       - name: Run Assignment 4
         run: |
           newman run collections/Assignment4.postman_collection.json \
-          --env-var "postman_api_key=${POSTMAN_API_KEY}" \
-          --reporters cli,junit \
-          --reporter-junit-export results/assignment4.xml
+            --env-var "postman_api_key=${{ secrets.POSTMAN_API_KEY }}" \
+            --env-var "collection_uuid=${{ secrets.ASSIGNMENT4_UUID }}" \
+            --env-var "apiKey=${{ secrets.ASSIGNMENT4_X_API_KEY }}" \
+            --reporters cli,junit \
+            --reporter-junit-export results/assignment4.xml
