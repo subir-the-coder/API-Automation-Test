@@ -27,27 +27,27 @@ jobs:
       - name: Run Assignment 1
         run: |
           newman run collection/Assignment1.postman_collection.json \
-          --env-var "x-api-key=${POSTMAN_API_KEY}" \
+          --env-var "apikey=${POSTMAN_API_KEY}" \
           --reporters cli,junit \
           --reporter-junit-export results/assignment1.xml
 
       - name: Run Assignment 2
         run: |
           newman run collection/Assignment2.postman_collection.json \
-          --env-var "x-api-key=${POSTMAN_API_KEY}" \
+          --env-var "apikey=${POSTMAN_API_KEY}" \
           --reporters cli,junit \
           --reporter-junit-export results/assignment2.xml
 
       - name: Run Assignment 3
         run: |
           newman run collection/Assignment3.postman_collection.json \
-          --env-var "x-api-key=${POSTMAN_API_KEY}" \
+          --env-var "apikey=${POSTMAN_API_KEY}" \
           --reporters cli,junit \
           --reporter-junit-export results/assignment3.xml
 
       - name: Run Assignment 4
         run: |
           newman run collection/Assignment4.postman_collection.json \
-          --env-var "x-api-key=${POSTMAN_API_KEY}" \
+          --env-var "apikey=${POSTMAN_API_KEY}" \
           --reporters cli,junit \
           --reporter-junit-export results/assignment4.xml
