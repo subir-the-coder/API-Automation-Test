@@ -1,0 +1,46 @@
+name: Run All Postman Assignments
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-assignments:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Assignment 1
+        run: |
+          newman run collections/Assignment1.postman_collection.json \
+          --reporters cli,junit \
+          --reporter-junit-export results/assignment1.xml
+
+      - name: Run Assignment 2
+        run: |
+          newman run collections/Assignment2.postman_collection.json \
+          --reporters cli,junit \
+          --reporter-junit-export results/assignment2.xml
+
+      - name: Run Assignment 3
+        run: |
+          newman run collections/Assignment3.postman_collection.json \
+          --reporters cli,junit \
+          --reporter-junit-export results/assignment3.xml
+
+      - name: Run Assignment 4
+        run: |
+          newman run collections/Assignment4.postman_collection.json \
+          --reporters cli,junit \
+          --reporter-junit-export results/assignment4.xml
