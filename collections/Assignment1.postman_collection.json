@@ -12,18 +12,25 @@
         {
           "name": "Get API status",
           "event": [
-            {
-              "listen": "test",
-              "script": {
+        {
+            "listen": "test",
+            "script": {
                 "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});"
+                    "let response = pm.response.json();",
+                    "pm.test(\"Status code is 201\", function () {",
+                    "    pm.expect(pm.response.code).to.eql(201);",
+                    "});",
+                    "pm.test(\"Status is OK\", function () {",
+                    "    pm.expect(response.status).to.eql(\"OK\");",
+                    "});"
                 ],
-                "type": "text/javascript"
-              }
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
             }
-          ],
+        }
+    ],
+
           "request": {
             "method": "GET",
             "header": [
