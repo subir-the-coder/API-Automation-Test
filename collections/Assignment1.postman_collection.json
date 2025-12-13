@@ -1,11 +1,11 @@
 {
 	"info": {
 		"_postman_id": "c1bf166f-4f5a-40a5-b3b9-0145bd794c70",
-		"name": "Assignment #1",
+		"name": "✅ Assignment #1",
 		"description": "## Instructions for Assignment #1\n\n1. **Get the challenge:** Fork the parent collection to your own public workspace.\n2. **Read the instructions:** You will find the tasks you need to complete below.\n3. **Verify your solution:** Select the second folder `Check your solution` and follow the instructions in the documentation to validate your solution.\n    \n\n## Tasks\n\n### Task 1\n\nAdd to the request \"**Get API status**\" a Postman test that verifies the status is 200.\n\nOnce you have established that the test is working as expected, duplicate the request and drag it inside the \"Assignment #1\" collection and put it in the \"API requests\" folder. Ensure the name of the request remains the same.\n\n### Task 2\n\nAdd to the request \"**Get single product**\" a script that parses the JSON response body. Log the value of the property \"product-description\" to the Postman console.\n\nOnce you have established that the script is working as expected, duplicate the request and drag it inside the \"Assignment #1\" collection and put it in the \"API requests\" folder. Ensure the name of the request remains the same.\n\n### Task 3\n\nAdd to the request \"**Create a new order**\" a script that parses the JSON response body and sets a Postman variable named `orderId` with the id of the order that was just created.\n\nOnce you have established that the script is working as expected, duplicate the request and drag it inside the \"Assignment #1\" collection and put it in the \"API requests\" folder. Ensure the name of the request remains the same.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "48957267",
-		"_collection_link": "https://subirthecoder35-1830748.postman.co/workspace/API-Automation-Scripts~bdfd9a3c-03f0-4034-8e87-84718b98a767/collection/48957267-c1bf166f-4f5a-40a5-b3b9-0145bd794c70?action=share&source=collection_link&creator=48957267"
+		"_collection_link": "https://www.postman.com/subirthecoder35-1830748/workspace/api-automation-scripts/collection/48957267-c1bf166f-4f5a-40a5-b3b9-0145bd794c70?action=share&source=collection_link&creator=48957267"
 	},
 	"item": [
 		{
@@ -166,6 +166,68 @@
 							"body": "[\n  {\n    \"id\": \"<integer>\",\n    \"category\": \"<string>\",\n    \"name\": \"<string>\",\n    \"isAvailable\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"category\": \"<string>\",\n    \"name\": \"<string>\",\n    \"isAvailable\": \"<boolean>\"\n  }\n]"
 						}
 					]
+				},
+				{
+					"name": "Create a new order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Parse the response JSON\r",
+									"let data = pm.response.json();\r",
+									"\r",
+									"// Set Postman variable with the order ID\r",
+									"pm.collectionVariables.set(\"orderId\", data.id);\r",
+									"\r",
+									"// Log it (optional for debugging)\r",
+									"console.log(\"Order ID:\", data.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerName\": \"{{$randomFullName}}\",\n  \"products\": [\n    {\n      \"id\": 2001,\n      \"quantity\": 1\n    },\n    {\n      \"id\": 2002,\n      \"quantity\": 3\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/orders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Place a new order by providing customer details and ordered products"
+					},
+					"response": []
 				}
 			]
 		},
