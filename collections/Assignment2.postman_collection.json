@@ -1,11 +1,11 @@
 {
 	"info": {
 		"_postman_id": "d8fb0b0f-3c0f-4381-be9e-7bc4b1d0e12c",
-		"name": "Assignment #2",
+		"name": "✅ Assignment #2",
 		"description": "## Instructions for Assignment #2\n\n1. **Get the challenge:** Fork the parent collection to your own public workspace.\n2. **Read the instructions:** You will find the tasks you need to complete below.\n3. **Verify your solution:** Select the second folder `Check your solution` and follow the instructions in the documentation to validate your solution.\n    \n\n## Tasks\n\n### Task 1\n\nUsing pm.expect() write a status code test for all the requests in the collection.\n\n### Task 2\n\nOnce you have established that the tests are working as expected, duplicate all the folders from the collection. Drag the folder copies inside the \"Assignment #2\" collection and put them in the \"API requests\" folder. Ensure the name of the request remains the same.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "48957267",
-		"_collection_link": "https://subirthecoder35-1830748.postman.co/workspace/API-Automation-Scripts~bdfd9a3c-03f0-4034-8e87-84718b98a767/collection/48957267-d8fb0b0f-3c0f-4381-be9e-7bc4b1d0e12c?action=share&source=collection_link&creator=48957267"
+		"_collection_link": "https://www.postman.com/subirthecoder35-1830748/workspace/api-automation-scripts/collection/48957267-d8fb0b0f-3c0f-4381-be9e-7bc4b1d0e12c?action=share&source=collection_link&creator=48957267"
 	},
 	"item": [
 		{
@@ -845,6 +845,11 @@
 			"key": "baseUrl",
 			"value": "https://valentinos-coffee.herokuapp.com",
 			"type": "string"
+		},
+		{
+			"key": "apiKey",
+			"value": "",
+			"type": "default"
 		}
 	]
 }
