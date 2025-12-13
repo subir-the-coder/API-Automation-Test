@@ -313,6 +313,10 @@
 			"value": "https://valentinos-coffee.herokuapp.com"
 		},
 		{
+			"key": "vault:authorization-secret",
+			"value": ""
+		},
+		{
 			"key": "apiKey",
 			"value": "",
 			"type": "default"
